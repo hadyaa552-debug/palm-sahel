@@ -27,7 +27,7 @@ const PROJECTS = [
     payment: "قريباً",
     desc: "أول مشروع Palm Hills المرتبط بعالم ديزني في مصر — إطلاق قريباً على الساحل الشمالي. سجّل اهتمامك الآن وكن من أوائل المحجوزين.",
     features: ["موقع استراتيجي على الساحل الشمالي","أول مشروع من نوعه في مصر","فرصة استثمارية استثنائية","تصميم عالمي المستوى"],
-    img: "/images/palm-hills-aerial.jpg",
+    img: "/images/disney-land.webp",
     coming: true,
   },
   {
@@ -36,17 +36,17 @@ const PROJECTS = [
     name: "Hacienda Bay",
     nameEn: "Hacienda Bay",
     tag: "سيدي عبد الرحمن",
-    location: "كيلو ١٢٤ — الساحل الشمالي",
+    location: "كيلو 124 — الساحل الشمالي",
     locationEn: "KM 124 — NORTH COAST",
-    price: "تبدأ من ١٣.٥ مليون",
-    payment: "٥٪ مقدم — ١٠ سنوات",
-    desc: "واحدة من أرقى قرى الساحل الشمالي على مساحة ٥٧٤ فداناً. شاليهات وتاون هاوس وتوين هاوس وفيلات مباشرة على البحر في سيدي عبد الرحمن. تصميم أوروبي راقٍ مع شاطئ خاص مميز.",
-    features: ["٥٧٤ فدان","شاطئ خاص مباشر على البحر","شاليهات — تاون — توين — فيلات","كيلو ١٢٤ طريق الإسكندرية","تصميم أوروبي فاخر"],
+    price: "تبدأ من 13.5 مليون",
+    payment: "5% مقدم — 10 سنوات",
+    desc: "واحدة من أرقى قرى الساحل الشمالي على مساحة 574 فداناً. شاليهات وتاون هاوس وتوين هاوس وفيلات مباشرة على البحر في سيدي عبد الرحمن. تصميم أوروبي راقٍ مع شاطئ خاص مميز.",
+    features: ["574 فدان","شاطئ خاص مباشر على البحر","شاليهات — تاون — توين — فيلات","كيلو 124 طريق الإسكندرية","تصميم أوروبي فاخر"],
     units: [
-      {type:"شاليه",price:"من ١٣,٥٠٠,٠٠٠ ج"},
-      {type:"تاون هاوس",price:"من ٢٥,٠٠٠,٠٠٠ ج"},
-      {type:"توين هاوس",price:"من ٣٧,٣٢٦,٧١٥ ج"},
-      {type:"فيلا",price:"من ٤٠,٣٩٧,٩٦٥ ج"},
+      {type:"شاليه",price:"من 13,500,000 ج"},
+      {type:"تاون هاوس",price:"من 25,000,000 ج"},
+      {type:"توين هاوس",price:"من 37,326,715 ج"},
+      {type:"فيلا",price:"من 40,397,965 ج"},
     ],
     img: "/images/hacienda-bay.webp",
   },
@@ -56,16 +56,16 @@ const PROJECTS = [
     name: "Hacienda Waters",
     nameEn: "Hacienda Waters",
     tag: "رأس الحكمة",
-    location: "كيلو ١٩٠ — رأس الحكمة",
+    location: "كيلو 190 — رأس الحكمة",
     locationEn: "KM 190 — RAS EL HEKMA",
-    price: "تبدأ من ١٠ مليون",
-    payment: "٢.٥٪ مقدم — ١٢ سنة",
-    desc: "أحدث مشاريع Palm Hills على الساحل الشمالي — قلب رأس الحكمة. ١٦١ فداناً بين كيلو ١٩٠ و١٩١ على طريق الإسكندرية. كابينات وشاليهات وفيلات مع إطلالة بحر مع أقل مقدم في السوق.",
-    features: ["١٦١ فدان رأس الحكمة","كيلو ١٩٠ طريق الإسكندرية","مقدم يبدأ من ٢.٥٪ فقط","تقسيط ١٢ سنة","شاليهات من ٤٢ م² — فيلات ٣٧٤ م²"],
+    price: "تبدأ من 10 مليون",
+    payment: "2.5% مقدم — 12 سنة",
+    desc: "أحدث مشاريع Palm Hills على الساحل الشمالي — قلب رأس الحكمة. 161 فداناً بين كيلو 190 و191 على طريق الإسكندرية. كابينات وشاليهات وفيلات مع إطلالة بحر مع أقل مقدم في السوق.",
+    features: ["161 فدان رأس الحكمة","كيلو 190 طريق الإسكندرية","مقدم يبدأ من 2.5% فقط","تقسيط 12 سنة","شاليهات من 42 م² — فيلات 374 م²"],
     units: [
-      {type:"كابينة",price:"من ٦,٨٠٠,٠٠٠ ج"},
-      {type:"شاليه ٢ غرفة",price:"من ١٠,٠٠٠,٠٠٠ ج"},
-      {type:"شاليه ٣ غرف",price:"من ١٤,٠٠٠,٠٠٠ ج"},
+      {type:"كابينة",price:"من 6,800,000 ج"},
+      {type:"شاليه 2 غرفة",price:"من 10,000,000 ج"},
+      {type:"شاليه 3 غرف",price:"من 14,000,000 ج"},
       {type:"فيلا",price:"تواصل للسعر"},
     ],
     img: "/images/hacienda-waters.png",
@@ -74,7 +74,7 @@ const PROJECTS = [
 
 // Images from Palm Hills website
 const HERO_IMGS = [
-  "/images/palm-hills-aerial.jpg",
+  "/images/disney-land.webp",
   "/images/hacienda-bay.webp",
   "/images/hacienda-waters.png",
 ]
@@ -100,7 +100,7 @@ function LeadForm({ subject, dark=false }: { subject:string; dark?:boolean }) {
     <div style={{textAlign:"center",padding:"2.5rem 1rem"}}>
       <div style={{fontSize:"2.5rem",marginBottom:"12px"}}>✅</div>
       <p style={{fontWeight:700,fontSize:"1.1rem",color:dark?"white":DARK}}>تم الإرسال!</p>
-      <p style={{fontSize:"0.8rem",marginTop:"6px",color:dark?"rgba(255,255,255,0.5)":MID}}>سيتواصل معك فريقنا خلال ٢٤ ساعة</p>
+      <p style={{fontSize:"0.8rem",marginTop:"6px",color:dark?"rgba(255,255,255,0.5)":MID}}>سيتواصل معك فريقنا خلال 24 ساعة</p>
     </div>
   )
 
@@ -126,7 +126,7 @@ function LeadForm({ subject, dark=false }: { subject:string; dark?:boolean }) {
         style={{...inpStyle,cursor:"pointer",color:form.project?tc:ph,marginBottom:"22px"}}>
         <option value="">اختر المشروع</option>
         <option value="أرض ديزني" style={{color:DARK}}>🔥 أرض ديزني — إطلاق قريباً</option>
-        <option value="Hacienda Bay" style={{color:DARK}}>Hacienda Bay — كيلو ١٢٤</option>
+        <option value="Hacienda Bay" style={{color:DARK}}>Hacienda Bay — كيلو 124</option>
         <option value="Hacienda Waters" style={{color:DARK}}>Hacienda Waters — رأس الحكمة</option>
       </select>
       <button type="submit" disabled={loading}
@@ -284,7 +284,7 @@ export default function Home() {
             </h1>
 
             <p style={{fontSize:"0.88rem",color:"rgba(255,255,255,0.55)",lineHeight:1.9,maxWidth:460,marginBottom:36}}>
-              Hacienda Bay، Hacienda Waters، وأرض ديزني المرتقب — ٣ مشاريع ساحلية من أقوى المطورين في مصر. تواصل معنا للأسعار والحجز.
+              Hacienda Bay، Hacienda Waters، وأرض ديزني المرتقب — 3 مشاريع ساحلية من أقوى المطورين في مصر. تواصل معنا للأسعار والحجز.
             </p>
 
             {/* Project pills */}
@@ -308,7 +308,7 @@ export default function Home() {
 
             {/* Stats */}
             <div style={{display:"flex",gap:0,borderTop:"1px solid rgba(255,255,255,0.1)",paddingTop:24}}>
-              {[{v:"1997",l:"تأسيس Palm Hills"},{v:"٣",l:"مشاريع ساحلية"},{v:"LSE",l:"مدرجة في لندن"}].map((s,i)=>(
+              {[{v:"1997",l:"تأسيس Palm Hills"},{v:"3",l:"مشاريع ساحلية"},{v:"LSE",l:"مدرجة في لندن"}].map((s,i)=>(
                 <div key={i} style={{paddingLeft:i>0?24:0,marginLeft:i>0?24:0,borderLeft:i>0?"1px solid rgba(255,255,255,0.1)":"none"}}>
                   <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1.8rem",fontWeight:300,color:GOLD}}>{s.v}</div>
                   <div style={{fontSize:"0.6rem",color:"rgba(255,255,255,0.28)",marginTop:3,letterSpacing:"0.1em"}}>{s.l}</div>
@@ -326,7 +326,7 @@ export default function Home() {
             <h2 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1.8rem",fontWeight:400,color:DARK,lineHeight:1.1,marginBottom:6}}>
               ابدأ رحلتك<br/>نحو الساحل
             </h2>
-            <p style={{fontSize:"0.75rem",color:MID,marginBottom:24,lineHeight:1.7}}>سيتواصل معك فريقنا خلال ٢٤ ساعة</p>
+            <p style={{fontSize:"0.75rem",color:MID,marginBottom:24,lineHeight:1.7}}>سيتواصل معك فريقنا خلال 24 ساعة</p>
             <LeadForm subject="Lead — Palm Hills (Hero)" />
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginTop:12}}>
               <a href={`${WA}?text=${encodeURIComponent("مرحباً، أنا مهتم بمشاريع Palm Hills الساحلية")}`}
@@ -500,10 +500,10 @@ export default function Home() {
         <div style={{padding:"80px 60px",display:"flex",flexDirection:"column",justifyContent:"center"}}>
           <p style={{fontSize:"0.6rem",fontWeight:700,letterSpacing:"0.25em",color:GOLD,marginBottom:20,textTransform:"uppercase"}}>عن Palm Hills</p>
           <h2 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"2.8rem",fontWeight:300,color:"white",lineHeight:1.1,marginBottom:20}}>
-            بنيان يمتد<br/><em style={{fontStyle:"italic",color:"rgba(255,255,255,0.4)"}}>منذ ١٩٩٧</em>
+            بنيان يمتد<br/><em style={{fontStyle:"italic",color:"rgba(255,255,255,0.4)"}}>منذ 1997</em>
           </h2>
           <p style={{fontSize:"0.85rem",color:"rgba(255,255,255,0.5)",lineHeight:1.9,marginBottom:32}}>
-            Palm Hills Developments من أكبر شركات التطوير العقاري في مصر — مدرجة في البورصة المصرية وبورصة لندن. تمتلك واحداً من أكبر بنوك الأراضي في البلاد مع أكثر من ٣٤ مشروعاً في القاهرة الكبرى، الساحل الشمالي، والإسكندرية.
+            Palm Hills Developments من أكبر شركات التطوير العقاري في مصر — مدرجة في البورصة المصرية وبورصة لندن. تمتلك واحداً من أكبر بنوك الأراضي في البلاد مع أكثر من 34 مشروعاً في القاهرة الكبرى، الساحل الشمالي، والإسكندرية.
           </p>
           <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:1,background:"rgba(255,255,255,0.06)"}}>
             {[{v:"34+",l:"مشروع نشط"},{v:"1997",l:"سنة التأسيس"},{v:"LSE",l:"مدرجة لندن"},{v:"الساحل",l:"شمالي + أكتوبر"},{v:"+29M",l:"م² محفظة أراضي"}].slice(0,4).map((s,i)=>(
@@ -530,8 +530,8 @@ export default function Home() {
           <div style={{borderTop:"1px solid rgba(255,255,255,0.2)"}}>
             {[
               {k:"أرض ديزني",v:"🔥 إطلاق قريباً"},
-              {k:"Hacienda Bay",v:"كيلو ١٢٤ — يبدأ من ١٣.٥M"},
-              {k:"Hacienda Waters",v:"رأس الحكمة — يبدأ من ١٠M"},
+              {k:"Hacienda Bay",v:"كيلو 124 — يبدأ من 13.5M"},
+              {k:"Hacienda Waters",v:"رأس الحكمة — يبدأ من 10M"},
             ].map((d,i)=>(
               <div key={i} style={{display:"flex",justifyContent:"space-between",padding:"14px 0",borderBottom:"1px solid rgba(255,255,255,0.1)"}}>
                 <span style={{fontWeight:600,color:"white",fontSize:"0.82rem"}}>{d.v}</span>
@@ -543,7 +543,7 @@ export default function Home() {
         <div style={{padding:"80px 60px",background:CREAM,display:"flex",flexDirection:"column",justifyContent:"center"}}>
           <p style={{fontSize:"0.6rem",fontWeight:700,letterSpacing:"0.25em",color:RED,marginBottom:12,textTransform:"uppercase"}}>طلب معلومات</p>
           <h3 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"2rem",fontWeight:300,color:DARK,marginBottom:6}}>نحن هنا لمساعدتك</h3>
-          <p style={{fontSize:"0.78rem",color:MID,marginBottom:28}}>سيتواصل معك فريق Palm Hills خلال ٢٤ ساعة</p>
+          <p style={{fontSize:"0.78rem",color:MID,marginBottom:28}}>سيتواصل معك فريق Palm Hills خلال 24 ساعة</p>
           <LeadForm subject="Lead — Palm Hills (Contact)" />
           <div style={{display:"flex",gap:8,marginTop:12}}>
             <a href={`${WA}?text=${encodeURIComponent("مرحباً، أنا مهتم بمشاريع Palm Hills الساحلية")}`}
@@ -571,7 +571,7 @@ export default function Home() {
             <div style={{fontSize:"0.45rem",color:"rgba(255,255,255,0.25)",letterSpacing:"0.15em",marginTop:2}}></div>
           </div>
         </div>
-        <span style={{fontSize:"0.65rem",color:"rgba(255,255,255,0.2)"}}>© ٢٠٢٦ Palm Hills Developments | Palm Hills — وكيل معتمد</span>
+        <span style={{fontSize:"0.65rem",color:"rgba(255,255,255,0.2)"}}>© 2026 Palm Hills Developments | Palm Hills — وكيل معتمد</span>
       </footer>
 
       {/* ── EOI POPUP ── */}
