@@ -27,7 +27,7 @@ const PROJECTS = [
     payment: "قريباً",
     desc: "أول مشروع Palm Hills المرتبط بعالم ديزني في مصر — إطلاق قريباً على الساحل الشمالي. سجّل اهتمامك الآن وكن من أوائل المحجوزين.",
     features: ["موقع استراتيجي على الساحل الشمالي","أول مشروع من نوعه في مصر","فرصة استثمارية استثنائية","تصميم عالمي المستوى"],
-    img: "https://sadaninvestment.com.eg/wp-content/uploads/2024/02/hacienda-bay-north-coast-1.jpg",
+    img: "/images/palm-hills-aerial.jpg",
     coming: true,
   },
   {
@@ -48,7 +48,7 @@ const PROJECTS = [
       {type:"توين هاوس",price:"من ٣٧,٣٢٦,٧١٥ ج"},
       {type:"فيلا",price:"من ٤٠,٣٩٧,٩٦٥ ج"},
     ],
-    img: "https://sadaninvestment.com.eg/wp-content/uploads/2024/02/hacienda-bay-north-coast-1.jpg",
+    img: "/images/hacienda-bay.webp",
   },
   {
     id: "waters",
@@ -68,15 +68,15 @@ const PROJECTS = [
       {type:"شاليه ٣ غرف",price:"من ١٤,٠٠٠,٠٠٠ ج"},
       {type:"فيلا",price:"تواصل للسعر"},
     ],
-    img: "https://sadaninvestment.com.eg/wp-content/uploads/2024/09/hacienda-waters-north-coast-1.jpg",
+    img: "/images/hacienda-waters.png",
   },
 ]
 
 // Images from Palm Hills website
 const HERO_IMGS = [
-  "https://sadaninvestment.com.eg/wp-content/uploads/2024/02/hacienda-bay-north-coast-1.jpg",
-  "https://sadaninvestment.com.eg/wp-content/uploads/2024/09/hacienda-waters-north-coast-1.jpg",
-  "https://gprproperty.com/wp-content/uploads/2024/02/Hacienda-Bay-North-Coast-1.jpg",
+  "/images/palm-hills-aerial.jpg",
+  "/images/hacienda-bay.webp",
+  "/images/hacienda-waters.png",
 ]
 
 /* ── Lead Form ── */
@@ -489,7 +489,7 @@ export default function Home() {
       {/* ── ABOUT PALM HILLS ── */}
       <section style={{display:"grid",gridTemplateColumns:"1fr 1fr",background:DARK}}>
         <div style={{
-          background:`url('https://sadaninvestment.com.eg/wp-content/uploads/2024/02/hacienda-bay-north-coast-1.jpg') center/cover`,
+          background:`url('/images/hacienda-bay.webp') center/cover`,
           minHeight:480,position:"relative",
         }}>
           <div style={{position:"absolute",inset:0,background:"rgba(28,25,23,0.3)"}} />
