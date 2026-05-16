@@ -199,6 +199,64 @@ export default function Home() {
         @keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
         .slide-up{animation:slideUp .7s ease forwards}
         .unit-row:hover{background:${WARM};transition:background .2s}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+
+        /* ── MOBILE RESPONSIVE ── */
+        @media(max-width:768px){
+          /* NAV */
+          .ph-nav{padding:0 16px!important;height:56px!important}
+          .ph-nav-links{display:none!important}
+          .ph-nav-logo-text{font-size:0.85rem!important}
+
+          /* HERO */
+          .ph-hero-grid{display:flex!important;flex-direction:column!important;padding:100px 20px 40px!important;gap:24px!important}
+          .ph-hero-text h1{font-size:2.5rem!important}
+          .ph-hero-text p{font-size:0.85rem!important}
+          .ph-hero-badge{font-size:0.68rem!important;padding:5px 12px!important}
+          .ph-hero-pills{gap:8px!important}
+          .ph-hero-pills button{font-size:0.7rem!important;padding:6px 14px!important}
+          .ph-hero-stats{flex-wrap:wrap!important;gap:16px!important}
+          .ph-hero-stats>div{padding-left:0!important;margin-left:0!important;border-left:none!important}
+          .ph-hero-form{padding:24px 20px!important}
+
+          /* PROJECTS OVERVIEW */
+          .ph-projects-grid{grid-template-columns:1fr!important}
+          .ph-project-card{padding:32px 20px!important}
+
+          /* PROJECT SECTIONS */
+          .ph-project-banner{flex-direction:column!important;padding:20px!important;gap:12px!important;align-items:flex-start!important}
+          .ph-project-banner-bg{font-size:3rem!important}
+          .ph-project-banner-prices{gap:16px!important}
+          .ph-project-content-grid{grid-template-columns:1fr!important;min-height:auto!important}
+          .ph-project-img{min-height:250px!important;order:1!important}
+          .ph-project-info{padding:32px 20px!important;order:2!important}
+          .ph-project-info h3{font-size:2rem!important}
+          .ph-project-info .ph-desc{font-size:0.92rem!important}
+
+          /* ABOUT */
+          .ph-about-grid{grid-template-columns:1fr!important}
+          .ph-about-img{min-height:250px!important}
+          .ph-about-text{padding:40px 20px!important}
+          .ph-about-text h2{font-size:2rem!important}
+          .ph-about-stats{grid-template-columns:1fr 1fr!important}
+
+          /* CONTACT */
+          .ph-contact-grid{grid-template-columns:1fr!important;min-height:auto!important}
+          .ph-contact-red{padding:40px 20px!important}
+          .ph-contact-red h2{font-size:2rem!important}
+          .ph-contact-red a[dir="ltr"]{font-size:1.5rem!important}
+          .ph-contact-form{padding:40px 20px!important}
+
+          /* FOOTER */
+          .ph-footer{flex-direction:column!important;gap:12px!important;padding:20px!important;padding-bottom:80px!important;text-align:center!important}
+          .ph-footer span{font-size:0.55rem!important}
+
+          /* FLOAT BUTTONS - hide on mobile since we have bottom bar */
+          .ph-float-btns{display:none!important}
+
+          /* SLIDESHOW DOTS */
+          .ph-dots{bottom:16px!important}
+        }
       `}</style>
 
       {/* ── HERO ── */}
@@ -213,7 +271,7 @@ export default function Home() {
         <div style={{position:"absolute",inset:0,background:`linear-gradient(135deg, rgba(28,25,23,0.92) 0%, rgba(28,25,23,0.65) 50%, rgba(28,25,23,0.4) 100%)`}} />
 
         {/* NAV */}
-        <nav style={{
+        <nav className="ph-nav" style={{
           position:"fixed",top:0,left:0,right:0,zIndex:100,
           display:"flex",alignItems:"center",justifyContent:"space-between",
           padding:"0 48px",height:70,
@@ -226,12 +284,12 @@ export default function Home() {
           <div style={{display:"flex",alignItems:"center",gap:10}}>
             <div style={{width:26,height:26,background:RED,transform:"rotate(45deg)",position:"relative",flexShrink:0}} />
             <div>
-              <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1rem",fontWeight:600,letterSpacing:"0.2em",color:scrolled?DARK:"white",lineHeight:1}}>PALM HILLS</div>
+              <div className="ph-nav-logo-text" style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1rem",fontWeight:600,letterSpacing:"0.2em",color:scrolled?DARK:"white",lineHeight:1}}>PALM HILLS</div>
               <div style={{fontSize:"0.45rem",letterSpacing:"0.2em",color:scrolled?MID:"rgba(255,255,255,0.45)",marginTop:2}}></div>
             </div>
           </div>
           {/* Links */}
-          <div style={{display:"flex",gap:32,alignItems:"center"}}>
+          <div className="ph-nav-links" style={{display:"flex",gap:32,alignItems:"center"}}>
             {[["المشاريع","projects"],["Hacienda Bay","bay"],["Hacienda Waters","waters"],["تواصل","contact"]].map(([l,id])=>(
               <button key={id} onClick={()=>scroll(id)} className="hov-red"
                 style={{background:"none",border:"none",cursor:"pointer",fontSize:"0.72rem",fontWeight:600,letterSpacing:"0.08em",color:scrolled?MID:"rgba(255,255,255,0.65)"}}>
@@ -249,21 +307,21 @@ export default function Home() {
         </nav>
 
         {/* Hero Content */}
-        <div style={{
+        <div className="ph-hero-grid" style={{
           position:"relative",zIndex:10,flex:1,
           display:"grid",gridTemplateColumns:"1fr 420px",
           gap:48,alignItems:"flex-end",
           maxWidth:1280,margin:"0 auto",width:"100%",
           padding:"120px 48px 80px",
         }}>
-          <div className="slide-up">
+          <div className="slide-up ph-hero-text">
             <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:20,flexDirection:"row-reverse",justifyContent:"flex-end"}}>
               <div style={{width:28,height:1,background:GOLD}} />
               <span style={{fontSize:"0.6rem",fontWeight:600,letterSpacing:"0.25em",color:GOLD}}>PALM HILLS DEVELOPMENTS • </span>
             </div>
 
             {/* Disney teaser badge */}
-            <div style={{
+            <div className="ph-hero-badge" style={{
               display:"inline-flex",alignItems:"center",gap:8,
               marginBottom:20,padding:"6px 16px",
               background:"rgba(139,26,26,0.9)",
@@ -288,7 +346,7 @@ export default function Home() {
             </p>
 
             {/* Project pills */}
-            <div style={{display:"flex",flexWrap:"wrap",gap:10,marginBottom:40}}>
+            <div className="ph-hero-pills" style={{display:"flex",flexWrap:"wrap",gap:10,marginBottom:40}}>
               {PROJECTS.map(p=>(
                 <button key={p.id} onClick={()=>scroll(p.id)}
                   style={{
@@ -307,7 +365,7 @@ export default function Home() {
             </div>
 
             {/* Stats */}
-            <div style={{display:"flex",gap:0,borderTop:"1px solid rgba(255,255,255,0.1)",paddingTop:24}}>
+            <div className="ph-hero-stats" style={{display:"flex",gap:0,borderTop:"1px solid rgba(255,255,255,0.1)",paddingTop:24}}>
               {[{v:"1997",l:"تأسيس Palm Hills"},{v:"3",l:"مشاريع ساحلية"},{v:"LSE",l:"مدرجة في لندن"}].map((s,i)=>(
                 <div key={i} style={{paddingLeft:i>0?24:0,marginLeft:i>0?24:0,borderLeft:i>0?"1px solid rgba(255,255,255,0.1)":"none"}}>
                   <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1.8rem",fontWeight:300,color:GOLD}}>{s.v}</div>
@@ -318,10 +376,10 @@ export default function Home() {
           </div>
 
           {/* Hero Form */}
-          <div style={{
+          <div className="ph-hero-form slide-up" style={{
             background:"rgba(248,245,240,0.96)",backdropFilter:"blur(16px)",
             padding:"36px 32px",borderTop:`3px solid ${RED}`,
-          }} className="slide-up">
+          }}>
             <p style={{fontSize:"0.6rem",fontWeight:700,letterSpacing:"0.2em",color:RED,marginBottom:12,textTransform:"uppercase"}}>اطلب معلومات</p>
             <h2 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1.8rem",fontWeight:400,color:DARK,lineHeight:1.1,marginBottom:6}}>
               ابدأ رحلتك<br/>نحو الساحل
@@ -346,7 +404,7 @@ export default function Home() {
 
         {/* Slideshow dots */}
         {mounted && (
-          <div style={{position:"absolute",bottom:32,left:"50%",transform:"translateX(-50%)",display:"flex",gap:8,zIndex:10}}>
+          <div className="ph-dots" style={{position:"absolute",bottom:32,left:"50%",transform:"translateX(-50%)",display:"flex",gap:8,zIndex:10}}>
             {HERO_IMGS.map((_,i)=>(
               <button key={i} onClick={()=>setHeroIdx(i)} style={{
                 width:i===heroIdx?24:8,height:8,
@@ -360,9 +418,9 @@ export default function Home() {
 
       {/* ── PROJECTS OVERVIEW ── */}
       <section id="projects" style={{padding:"0",background:CREAM}}>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:1,background:BORDER}}>
+        <div className="ph-projects-grid" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:1,background:BORDER}}>
           {PROJECTS.map((p,i)=>(
-            <div key={p.id} className="card-hover"
+            <div key={p.id} className="card-hover ph-project-card"
               style={{background:CREAM,padding:"48px 40px",cursor:"pointer",position:"relative",overflow:"hidden"}}
               onClick={()=>scroll(p.id)}>
               {/* Bottom border anim */}
@@ -391,21 +449,21 @@ export default function Home() {
       {PROJECTS.map((p, pi) => (
         <section key={p.id} id={p.id} style={{background: pi%2===0 ? CREAM : WARM}}>
           {/* Banner */}
-          <div style={{
+          <div className="ph-project-banner" style={{
             padding:"28px 48px",display:"flex",justifyContent:"space-between",alignItems:"center",
             borderBottom:`1px solid ${BORDER}`,
             background: pi%2===0 ? WARM : CREAM,
             position:"relative",overflow:"hidden",
           }}>
             <div style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",overflow:"hidden",pointerEvents:"none"}}>
-              <span style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"8rem",fontWeight:300,whiteSpace:"nowrap",color:"rgba(28,25,23,0.03)",letterSpacing:"0.2em"}}>{p.nameEn}</span>
+              <span className="ph-project-banner-bg" style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"8rem",fontWeight:300,whiteSpace:"nowrap",color:"rgba(28,25,23,0.03)",letterSpacing:"0.2em"}}>{p.nameEn}</span>
             </div>
             <div style={{position:"relative"}}>
               <p style={{fontSize:"0.72rem",fontWeight:700,letterSpacing:"0.25em",color:RED,marginBottom:6,textTransform:"uppercase"}}>{p.num} — {p.locationEn}</p>
               <h2 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"2rem",fontWeight:400,color:DARK}}>{p.name}</h2>
             </div>
             {!p.coming && (
-              <div style={{display:"flex",gap:32,position:"relative"}}>
+              <div className="ph-project-banner-prices" style={{display:"flex",gap:32,position:"relative"}}>
                 {[{v:p.price,l:"السعر يبدأ"},{v:p.payment,l:"السداد"}].map((s,i)=>(
                   <div key={i} style={{textAlign:"right"}}>
                     <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1.3rem",color:RED}}>{s.v}</div>
@@ -421,9 +479,9 @@ export default function Home() {
             )}
           </div>
 
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",minHeight:"70vh"}}>
+          <div className="ph-project-content-grid" style={{display:"grid",gridTemplateColumns:"1fr 1fr",minHeight:"70vh"}}>
             {/* Image */}
-            <div className="hov-scale" style={{position:"relative",overflow:"hidden",minHeight:"50vw",order:pi%2===0?1:2}}>
+            <div className="hov-scale ph-project-img" style={{position:"relative",overflow:"hidden",minHeight:"50vw",order:pi%2===0?1:2}}>
               <img src={p.img} alt={p.name} style={{width:"100%",height:"100%",objectFit:"cover",position:"absolute",inset:0,transition:"transform .7s"}} />
               <div style={{position:"absolute",inset:0,background:`linear-gradient(to top, rgba(28,25,23,0.4) 0%, transparent 50%)`}} />
               {p.coming && (
@@ -434,7 +492,7 @@ export default function Home() {
             </div>
 
             {/* Content */}
-            <div style={{
+            <div className="ph-project-info" style={{
               padding:"60px 52px",display:"flex",flexDirection:"column",justifyContent:"center",
               order:pi%2===0?2:1,
               background: pi%2===0 ? CREAM : WARM,
@@ -443,7 +501,7 @@ export default function Home() {
               <h3 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"2.5rem",fontWeight:300,color:DARK,lineHeight:1.05,marginBottom:8}}>{p.name}</h3>
               <p style={{fontSize:"0.85rem",color:MID,letterSpacing:"0.12em",textTransform:"uppercase",marginBottom:24}}>{p.location}</p>
               <div style={{width:32,height:1,background:RED,marginBottom:24}} />
-              <p style={{fontSize:"1.05rem",color:MID,lineHeight:1.9,marginBottom:28}}>{p.desc}</p>
+              <p className="ph-desc" style={{fontSize:"1.05rem",color:MID,lineHeight:1.9,marginBottom:28}}>{p.desc}</p>
 
               {/* Features */}
               <div style={{marginBottom:24}}>
@@ -487,8 +545,8 @@ export default function Home() {
       ))}
 
       {/* ── ABOUT PALM HILLS ── */}
-      <section style={{display:"grid",gridTemplateColumns:"1fr 1fr",background:DARK}}>
-        <div style={{
+      <section className="ph-about-grid" style={{display:"grid",gridTemplateColumns:"1fr 1fr",background:DARK}}>
+        <div className="ph-about-img" style={{
           background:`url('/images/hacienda-bay.webp') center/cover`,
           minHeight:480,position:"relative",
         }}>
@@ -497,7 +555,7 @@ export default function Home() {
             SINCE 1997
           </div>
         </div>
-        <div style={{padding:"80px 60px",display:"flex",flexDirection:"column",justifyContent:"center"}}>
+        <div className="ph-about-text" style={{padding:"80px 60px",display:"flex",flexDirection:"column",justifyContent:"center"}}>
           <p style={{fontSize:"0.6rem",fontWeight:700,letterSpacing:"0.25em",color:GOLD,marginBottom:20,textTransform:"uppercase"}}>عن Palm Hills</p>
           <h2 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"2.8rem",fontWeight:300,color:"white",lineHeight:1.1,marginBottom:20}}>
             بنيان يمتد<br/><em style={{fontStyle:"italic",color:"rgba(255,255,255,0.4)"}}>منذ 1997</em>
@@ -505,7 +563,7 @@ export default function Home() {
           <p style={{fontSize:"0.85rem",color:"rgba(255,255,255,0.5)",lineHeight:1.9,marginBottom:32}}>
             Palm Hills Developments من أكبر شركات التطوير العقاري في مصر — مدرجة في البورصة المصرية وبورصة لندن. تمتلك واحداً من أكبر بنوك الأراضي في البلاد مع أكثر من 34 مشروعاً في القاهرة الكبرى، الساحل الشمالي، والإسكندرية.
           </p>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:1,background:"rgba(255,255,255,0.06)"}}>
+          <div className="ph-about-stats" style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:1,background:"rgba(255,255,255,0.06)"}}>
             {[{v:"34+",l:"مشروع نشط"},{v:"1997",l:"سنة التأسيس"},{v:"LSE",l:"مدرجة لندن"},{v:"الساحل",l:"شمالي + أكتوبر"},{v:"+29M",l:"م² محفظة أراضي"}].slice(0,4).map((s,i)=>(
               <div key={i} style={{background:"rgba(255,255,255,0.03)",padding:"24px 28px"}}>
                 <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"2rem",fontWeight:300,color:GOLD}}>{s.v}</div>
@@ -517,8 +575,8 @@ export default function Home() {
       </section>
 
       {/* ── CONTACT ── */}
-      <section id="contact" style={{display:"grid",gridTemplateColumns:"1fr 1fr",minHeight:"65vh"}}>
-        <div style={{padding:"80px 60px",background:RED,display:"flex",flexDirection:"column",justifyContent:"center"}}>
+      <section id="contact" className="ph-contact-grid" style={{display:"grid",gridTemplateColumns:"1fr 1fr",minHeight:"65vh"}}>
+        <div className="ph-contact-red" style={{padding:"80px 60px",background:RED,display:"flex",flexDirection:"column",justifyContent:"center"}}>
           <p style={{fontSize:"0.6rem",fontWeight:700,letterSpacing:"0.25em",color:"rgba(255,255,255,0.6)",marginBottom:20,textTransform:"uppercase"}}>تواصل مع </p>
           <h2 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"3rem",fontWeight:300,color:"white",lineHeight:1.05,marginBottom:20}}>
             ابدأ رحلتك<br/>نحو الساحل
@@ -540,7 +598,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div style={{padding:"80px 60px",background:CREAM,display:"flex",flexDirection:"column",justifyContent:"center"}}>
+        <div className="ph-contact-form" style={{padding:"80px 60px",background:CREAM,display:"flex",flexDirection:"column",justifyContent:"center"}}>
           <p style={{fontSize:"0.6rem",fontWeight:700,letterSpacing:"0.25em",color:RED,marginBottom:12,textTransform:"uppercase"}}>طلب معلومات</p>
           <h3 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"2rem",fontWeight:300,color:DARK,marginBottom:6}}>نحن هنا لمساعدتك</h3>
           <p style={{fontSize:"0.78rem",color:MID,marginBottom:28}}>سيتواصل معك فريق Palm Hills خلال 24 ساعة</p>
@@ -560,7 +618,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{
+      <footer className="ph-footer" style={{
         padding:"20px 48px 80px",display:"flex",alignItems:"center",justifyContent:"space-between",
         background:DARK,borderTop:"1px solid rgba(255,255,255,0.05)",
       }}>
@@ -638,7 +696,7 @@ export default function Home() {
       )}
 
       {/* FLOAT BUTTONS */}
-      <div style={{position:"fixed",bottom:80,left:24,zIndex:50,display:"flex",flexDirection:"column",gap:10}}>
+      <div className="ph-float-btns" style={{position:"fixed",bottom:80,left:24,zIndex:50,display:"flex",flexDirection:"column",gap:10}}>
         <a href={`tel:${PHONE}`}
           style={{width:44,height:44,borderRadius:"50%",background:RED,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 4px 20px rgba(0,0,0,0.25)",textDecoration:"none",transition:"transform .2s"}}
           onMouseEnter={e=>(e.currentTarget.style.transform="scale(1.1)")} onMouseLeave={e=>(e.currentTarget.style.transform="scale(1)")}>
