@@ -189,7 +189,7 @@ export default function Home() {
         @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap');
         *{box-sizing:border-box;margin:0;padding:0;font-family:'Almarai',system-ui,-apple-system,sans-serif}
         html{scroll-behavior:smooth}
-        body{background:${CREAM};color:${DARK};direction:rtl;font-size:16px;font-weight:400}
+        body{background:${CREAM};color:${DARK};direction:rtl;font-size:18px;font-weight:400}
         .hov-red:hover{color:${RED}!important;transition:color .2s}
         .hov-scale:hover img{transform:scale(1.05);transition:transform .7s}
         .card-hover:hover{background:${WARM}!important;transition:background .3s}
@@ -368,15 +368,15 @@ export default function Home() {
               {/* Bottom border anim */}
               <div className="card-bar" style={{position:"absolute",bottom:0,left:0,right:0,height:2,background:RED,transform:"scaleX(0)",transition:"transform .3s",transformOrigin:"right"}} />
               <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"3.5rem",fontWeight:300,color:"rgba(28,25,23,0.05)",marginBottom:-8}}>{p.num}</div>
-              <div style={{display:"inline-block",fontSize:"0.6rem",fontWeight:700,letterSpacing:"0.15em",color:p.coming?RED:MID,marginBottom:12,padding:p.coming?"4px 10px":"0",background:p.coming?"rgba(139,26,26,0.08)":"transparent",border:p.coming?`1px solid rgba(139,26,26,0.2)`:"none"}}>
+              <div style={{display:"inline-block",fontSize:"0.75rem",fontWeight:700,letterSpacing:"0.15em",color:p.coming?RED:MID,marginBottom:12,padding:p.coming?"4px 10px":"0",background:p.coming?"rgba(139,26,26,0.08)":"transparent",border:p.coming?`1px solid rgba(139,26,26,0.2)`:"none"}}>
                 {p.tag}
               </div>
               <h3 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1.8rem",fontWeight:400,marginBottom:6,color:DARK}}>{p.name}</h3>
-              <p style={{fontSize:"0.68rem",color:MID,letterSpacing:"0.12em",textTransform:"uppercase",marginBottom:20}}>{p.location}</p>
+              <p style={{fontSize:"0.82rem",color:MID,letterSpacing:"0.12em",textTransform:"uppercase",marginBottom:20}}>{p.location}</p>
               <div style={{borderTop:`1px solid ${BORDER}`,paddingTop:20,display:"flex",justifyContent:"space-between",alignItems:"flex-end"}}>
                 <div>
-                  <p style={{fontSize:"0.6rem",color:MID,marginBottom:4}}>يبدأ السعر من</p>
-                  <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1.2rem",color:RED,fontWeight:300}}>{p.price}</p>
+                  <p style={{fontSize:"0.75rem",color:MID,marginBottom:4}}>يبدأ السعر من</p>
+                  <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1.4rem",color:RED,fontWeight:300}}>{p.price}</p>
                 </div>
                 <div style={{width:32,height:32,border:`1px solid ${BORDER}`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:"0.9rem",transition:"all .2s"}}>
                   ↓
@@ -401,21 +401,21 @@ export default function Home() {
               <span style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"8rem",fontWeight:300,whiteSpace:"nowrap",color:"rgba(28,25,23,0.03)",letterSpacing:"0.2em"}}>{p.nameEn}</span>
             </div>
             <div style={{position:"relative"}}>
-              <p style={{fontSize:"0.58rem",fontWeight:700,letterSpacing:"0.25em",color:RED,marginBottom:6,textTransform:"uppercase"}}>{p.num} — {p.locationEn}</p>
+              <p style={{fontSize:"0.72rem",fontWeight:700,letterSpacing:"0.25em",color:RED,marginBottom:6,textTransform:"uppercase"}}>{p.num} — {p.locationEn}</p>
               <h2 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"2rem",fontWeight:400,color:DARK}}>{p.name}</h2>
             </div>
             {!p.coming && (
               <div style={{display:"flex",gap:32,position:"relative"}}>
                 {[{v:p.price,l:"السعر يبدأ"},{v:p.payment,l:"السداد"}].map((s,i)=>(
                   <div key={i} style={{textAlign:"right"}}>
-                    <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1.1rem",color:RED}}>{s.v}</div>
-                    <div style={{fontSize:"0.6rem",color:MID,marginTop:2,letterSpacing:"0.08em"}}>{s.l}</div>
+                    <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1.3rem",color:RED}}>{s.v}</div>
+                    <div style={{fontSize:"0.75rem",color:MID,marginTop:2,letterSpacing:"0.08em"}}>{s.l}</div>
                   </div>
                 ))}
               </div>
             )}
             {p.coming && (
-              <div style={{padding:"8px 20px",border:`1px solid ${RED}`,color:RED,fontSize:"0.72rem",fontWeight:700,letterSpacing:"0.1em",animation:"pulse 2s infinite"}}>
+              <div style={{padding:"10px 24px",border:`1px solid ${RED}`,color:RED,fontSize:"0.88rem",fontWeight:700,letterSpacing:"0.1em",animation:"pulse 2s infinite"}}>
                 🔥 إطلاق قريباً — سجّل الآن
               </div>
             )}
@@ -439,17 +439,17 @@ export default function Home() {
               order:pi%2===0?2:1,
               background: pi%2===0 ? CREAM : WARM,
             }}>
-              <p style={{fontSize:"0.6rem",fontWeight:700,letterSpacing:"0.25em",color:RED,marginBottom:16,textTransform:"uppercase"}}>PALM HILLS DEVELOPMENTS</p>
+              <p style={{fontSize:"0.75rem",fontWeight:700,letterSpacing:"0.25em",color:RED,marginBottom:16,textTransform:"uppercase"}}>PALM HILLS DEVELOPMENTS</p>
               <h3 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"2.5rem",fontWeight:300,color:DARK,lineHeight:1.05,marginBottom:8}}>{p.name}</h3>
-              <p style={{fontSize:"0.68rem",color:MID,letterSpacing:"0.12em",textTransform:"uppercase",marginBottom:24}}>{p.location}</p>
+              <p style={{fontSize:"0.85rem",color:MID,letterSpacing:"0.12em",textTransform:"uppercase",marginBottom:24}}>{p.location}</p>
               <div style={{width:32,height:1,background:RED,marginBottom:24}} />
-              <p style={{fontSize:"0.88rem",color:MID,lineHeight:1.9,marginBottom:28}}>{p.desc}</p>
+              <p style={{fontSize:"1.05rem",color:MID,lineHeight:1.9,marginBottom:28}}>{p.desc}</p>
 
               {/* Features */}
               <div style={{marginBottom:24}}>
                 {p.features.map((f,i)=>(
-                  <div key={i} style={{display:"flex",alignItems:"center",gap:10,padding:"8px 0",borderBottom:`1px solid ${BORDER}`,fontSize:"0.82rem",color:DARK}}>
-                    <div style={{width:5,height:5,background:RED,flexShrink:0}} />
+                  <div key={i} style={{display:"flex",alignItems:"center",gap:12,padding:"12px 0",borderBottom:`1px solid ${BORDER}`,fontSize:"1rem",color:DARK}}>
+                    <div style={{width:6,height:6,background:RED,flexShrink:0}} />
                     {f}
                   </div>
                 ))}
@@ -459,9 +459,9 @@ export default function Home() {
               {p.units && (
                 <div style={{marginBottom:24,border:`1px solid ${BORDER}`}}>
                   {p.units.map((u,i)=>(
-                    <div key={i} className="unit-row" style={{display:"flex",justifyContent:"space-between",padding:"12px 16px",borderBottom:i<p.units!.length-1?`1px solid ${BORDER}`:"none"}}>
-                      <span style={{fontWeight:600,fontSize:"0.82rem",color:DARK}}>{u.type}</span>
-                      <span style={{fontSize:"0.82rem",color:RED,fontFamily:"'Cormorant Garamond',serif"}}>{u.price}</span>
+                    <div key={i} className="unit-row" style={{display:"flex",justifyContent:"space-between",padding:"16px 20px",borderBottom:i<p.units!.length-1?`1px solid ${BORDER}`:"none"}}>
+                      <span style={{fontWeight:600,fontSize:"1rem",color:DARK}}>{u.type}</span>
+                      <span style={{fontSize:"1rem",color:RED,fontFamily:"'Cormorant Garamond',serif"}}>{u.price}</span>
                     </div>
                   ))}
                 </div>
@@ -471,11 +471,11 @@ export default function Home() {
               <div style={{display:"flex",gap:10}}>
                 <a href={`${WA}?text=${encodeURIComponent(`مرحباً، أنا مهتم بمشروع ${p.name} من Palm Hills`)}`}
                   target="_blank" rel="noopener noreferrer"
-                  style={{flex:1,padding:"13px",background:"#25D366",color:"white",fontWeight:700,fontSize:"0.75rem",textAlign:"center",textDecoration:"none"}}>
+                  style={{flex:1,padding:"16px",background:"#25D366",color:"white",fontWeight:700,fontSize:"0.92rem",textAlign:"center",textDecoration:"none"}}>
                   💬 واتساب
                 </a>
                 <a href={`tel:${PHONE}`}
-                  style={{flex:1,padding:"13px",border:`1px solid ${DARK}`,color:DARK,fontWeight:700,fontSize:"0.75rem",textAlign:"center",textDecoration:"none",transition:"all .2s"}}
+                  style={{flex:1,padding:"16px",border:`1px solid ${DARK}`,color:DARK,fontWeight:700,fontSize:"0.92rem",textAlign:"center",textDecoration:"none",transition:"all .2s"}}
                   onMouseEnter={e=>{(e.currentTarget.style.background=DARK);(e.currentTarget.style.color="white")}}
                   onMouseLeave={e=>{(e.currentTarget.style.background="transparent");(e.currentTarget.style.color=DARK)}}>
                   📞 اتصل الآن
