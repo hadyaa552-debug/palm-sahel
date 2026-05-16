@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 
 const PHONE = "+201119770408"
 const WA = "https://wa.me/201119770408"
-const EMAIL = "Info@nurlinebrokerage.com"
+const EMAIL = "Info@brokerage.com"
 
 // Palm Hills brand colors — cream + dark charcoal + red accent
 const DARK = "#1C1917"
@@ -27,7 +27,7 @@ const PROJECTS = [
     payment: "قريباً",
     desc: "أول مشروع Palm Hills المرتبط بعالم ديزني في مصر — إطلاق قريباً على الساحل الشمالي. سجّل اهتمامك الآن وكن من أوائل المحجوزين.",
     features: ["موقع استراتيجي على الساحل الشمالي","أول مشروع من نوعه في مصر","فرصة استثمارية استثنائية","تصميم عالمي المستوى"],
-    img: "https://prod-images.nawy.com/processed/inventory/compounds/43/gallery/Hacienda%20Bay%204.jpg",
+    img: "https://sadaninvestment.com.eg/wp-content/uploads/2024/02/hacienda-bay-north-coast-1.jpg",
     coming: true,
   },
   {
@@ -48,7 +48,7 @@ const PROJECTS = [
       {type:"توين هاوس",price:"من ٣٧,٣٢٦,٧١٥ ج"},
       {type:"فيلا",price:"من ٤٠,٣٩٧,٩٦٥ ج"},
     ],
-    img: "https://prod-images.nawy.com/processed/inventory/compounds/43/gallery/Screenshot%202024-08-12%20at%201.53.06%E2%80%AFAM.png",
+    img: "https://sadaninvestment.com.eg/wp-content/uploads/2024/02/hacienda-bay-north-coast-1.jpg",
   },
   {
     id: "waters",
@@ -68,15 +68,15 @@ const PROJECTS = [
       {type:"شاليه ٣ غرف",price:"من ١٤,٠٠٠,٠٠٠ ج"},
       {type:"فيلا",price:"تواصل للسعر"},
     ],
-    img: "https://prod-images.nawy.com/processed/inventory/compounds/1261/gallery/Hacienda%20Waters%201.jpg",
+    img: "https://sadaninvestment.com.eg/wp-content/uploads/2024/09/hacienda-waters-north-coast-1.jpg",
   },
 ]
 
 // Images from Palm Hills website
 const HERO_IMGS = [
-  "https://prod-images.nawy.com/processed/inventory/compounds/43/gallery/Screenshot%202024-08-12%20at%201.53.06%E2%80%AFAM.png",
-  "https://prod-images.nawy.com/processed/inventory/compounds/1261/gallery/Hacienda%20Waters%201.jpg",
-  "https://prod-images.nawy.com/processed/inventory/compounds/43/gallery/Hacienda%20Bay%204.jpg",
+  "https://sadaninvestment.com.eg/wp-content/uploads/2024/02/hacienda-bay-north-coast-1.jpg",
+  "https://sadaninvestment.com.eg/wp-content/uploads/2024/09/hacienda-waters-north-coast-1.jpg",
+  "https://gprproperty.com/wp-content/uploads/2024/02/Hacienda-Bay-North-Coast-1.jpg",
 ]
 
 /* ── Lead Form ── */
@@ -154,6 +154,33 @@ export default function Home() {
     return ()=>{ window.removeEventListener("scroll",fn); clearInterval(ti) }
   },[])
 
+
+  // ── EOI Popup ──
+  const [showPopup, setShowPopup] = useState(false)
+  const [popupForm, setPopupForm] = useState({name:"",phone:""})
+  const [popupSent, setPopupSent] = useState(false)
+  const [popupLoading, setPopupLoading] = useState(false)
+
+  useEffect(()=>{
+    try {
+      if (!sessionStorage.getItem("ph_popup_seen")) {
+        const t = setTimeout(()=>{ setShowPopup(true); sessionStorage.setItem("ph_popup_seen","1") }, 3000)
+        return ()=>clearTimeout(t)
+      }
+    } catch {}
+  },[])
+
+  const submitPopup = async (e: React.FormEvent) => {
+    e.preventDefault(); setPopupLoading(true)
+    try {
+      await fetch(`https://formsubmit.co/ajax/${EMAIL}`, {
+        method:"POST", headers:{"Content-Type":"application/json",Accept:"application/json"},
+        body: JSON.stringify({...popupForm, _subject:"EOI — أرض ديزني Palm Hills", _captcha:"false", _template:"table"}),
+      })
+      setPopupSent(true)
+    } catch { setPopupLoading(false) }
+  }
+
   const scroll = (id:string)=>document.getElementById(id)?.scrollIntoView({behavior:"smooth"})
 
   return (
@@ -200,7 +227,7 @@ export default function Home() {
             <div style={{width:26,height:26,background:RED,transform:"rotate(45deg)",position:"relative",flexShrink:0}} />
             <div>
               <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1rem",fontWeight:600,letterSpacing:"0.2em",color:scrolled?DARK:"white",lineHeight:1}}>PALM HILLS</div>
-              <div style={{fontSize:"0.45rem",letterSpacing:"0.2em",color:scrolled?MID:"rgba(255,255,255,0.45)",marginTop:2}}>NURLINE BROKERAGE</div>
+              <div style={{fontSize:"0.45rem",letterSpacing:"0.2em",color:scrolled?MID:"rgba(255,255,255,0.45)",marginTop:2}}></div>
             </div>
           </div>
           {/* Links */}
@@ -232,7 +259,7 @@ export default function Home() {
           <div className="slide-up">
             <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:20,flexDirection:"row-reverse",justifyContent:"flex-end"}}>
               <div style={{width:28,height:1,background:GOLD}} />
-              <span style={{fontSize:"0.6rem",fontWeight:600,letterSpacing:"0.25em",color:GOLD}}>PALM HILLS DEVELOPMENTS • NURLINE BROKERAGE</span>
+              <span style={{fontSize:"0.6rem",fontWeight:600,letterSpacing:"0.25em",color:GOLD}}>PALM HILLS DEVELOPMENTS • </span>
             </div>
 
             {/* Disney teaser badge */}
@@ -299,7 +326,7 @@ export default function Home() {
             <h2 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1.8rem",fontWeight:400,color:DARK,lineHeight:1.1,marginBottom:6}}>
               ابدأ رحلتك<br/>نحو الساحل
             </h2>
-            <p style={{fontSize:"0.75rem",color:MID,marginBottom:24,lineHeight:1.7}}>سيتواصل معك فريق Nurline خلال ٢٤ ساعة</p>
+            <p style={{fontSize:"0.75rem",color:MID,marginBottom:24,lineHeight:1.7}}>سيتواصل معك فريقنا خلال ٢٤ ساعة</p>
             <LeadForm subject="Lead — Palm Hills (Hero)" />
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginTop:12}}>
               <a href={`${WA}?text=${encodeURIComponent("مرحباً، أنا مهتم بمشاريع Palm Hills الساحلية")}`}
@@ -462,7 +489,7 @@ export default function Home() {
       {/* ── ABOUT PALM HILLS ── */}
       <section style={{display:"grid",gridTemplateColumns:"1fr 1fr",background:DARK}}>
         <div style={{
-          background:`url('https://prod-images.nawy.com/processed/inventory/compounds/43/gallery/Hacienda%20Bay%204.jpg') center/cover`,
+          background:`url('https://sadaninvestment.com.eg/wp-content/uploads/2024/02/hacienda-bay-north-coast-1.jpg') center/cover`,
           minHeight:480,position:"relative",
         }}>
           <div style={{position:"absolute",inset:0,background:"rgba(28,25,23,0.3)"}} />
@@ -492,7 +519,7 @@ export default function Home() {
       {/* ── CONTACT ── */}
       <section id="contact" style={{display:"grid",gridTemplateColumns:"1fr 1fr",minHeight:"65vh"}}>
         <div style={{padding:"80px 60px",background:RED,display:"flex",flexDirection:"column",justifyContent:"center"}}>
-          <p style={{fontSize:"0.6rem",fontWeight:700,letterSpacing:"0.25em",color:"rgba(255,255,255,0.6)",marginBottom:20,textTransform:"uppercase"}}>تواصل مع Nurline</p>
+          <p style={{fontSize:"0.6rem",fontWeight:700,letterSpacing:"0.25em",color:"rgba(255,255,255,0.6)",marginBottom:20,textTransform:"uppercase"}}>تواصل مع </p>
           <h2 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"3rem",fontWeight:300,color:"white",lineHeight:1.05,marginBottom:20}}>
             ابدأ رحلتك<br/>نحو الساحل
           </h2>
@@ -516,7 +543,7 @@ export default function Home() {
         <div style={{padding:"80px 60px",background:CREAM,display:"flex",flexDirection:"column",justifyContent:"center"}}>
           <p style={{fontSize:"0.6rem",fontWeight:700,letterSpacing:"0.25em",color:RED,marginBottom:12,textTransform:"uppercase"}}>طلب معلومات</p>
           <h3 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"2rem",fontWeight:300,color:DARK,marginBottom:6}}>نحن هنا لمساعدتك</h3>
-          <p style={{fontSize:"0.78rem",color:MID,marginBottom:28}}>سيتواصل معك فريق Nurline Brokerage خلال ٢٤ ساعة</p>
+          <p style={{fontSize:"0.78rem",color:MID,marginBottom:28}}>سيتواصل معك فريق Palm Hills خلال ٢٤ ساعة</p>
           <LeadForm subject="Lead — Palm Hills (Contact)" />
           <div style={{display:"flex",gap:8,marginTop:12}}>
             <a href={`${WA}?text=${encodeURIComponent("مرحباً، أنا مهتم بمشاريع Palm Hills الساحلية")}`}
@@ -541,11 +568,74 @@ export default function Home() {
           <div style={{width:18,height:18,background:RED,transform:"rotate(45deg)"}} />
           <div>
             <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"0.85rem",letterSpacing:"0.2em",color:GOLD,lineHeight:1}}>PALM HILLS</div>
-            <div style={{fontSize:"0.45rem",color:"rgba(255,255,255,0.25)",letterSpacing:"0.15em",marginTop:2}}>NURLINE BROKERAGE</div>
+            <div style={{fontSize:"0.45rem",color:"rgba(255,255,255,0.25)",letterSpacing:"0.15em",marginTop:2}}></div>
           </div>
         </div>
-        <span style={{fontSize:"0.65rem",color:"rgba(255,255,255,0.2)"}}>© ٢٠٢٦ Palm Hills Developments | Nurline Brokerage — وكيل معتمد</span>
+        <span style={{fontSize:"0.65rem",color:"rgba(255,255,255,0.2)"}}>© ٢٠٢٦ Palm Hills Developments | Palm Hills — وكيل معتمد</span>
       </footer>
+
+      {/* ── EOI POPUP ── */}
+      {showPopup && (
+        <div style={{position:"fixed",inset:0,zIndex:200,display:"flex",alignItems:"center",justifyContent:"center",padding:"1rem",background:"rgba(0,0,0,0.75)",backdropFilter:"blur(4px)"}}>
+          <div style={{background:"white",maxWidth:440,width:"100%",position:"relative",overflow:"hidden"}}>
+            {/* Top red bar */}
+            <div style={{background:RED,padding:"24px 28px 20px",color:"white"}}>
+              <button onClick={()=>setShowPopup(false)} style={{position:"absolute",top:12,left:16,background:"none",border:"none",color:"rgba(255,255,255,0.6)",fontSize:"1.2rem",cursor:"pointer",lineHeight:1}}>✕</button>
+              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8}}>
+                <span style={{fontSize:"1.2rem"}}>🔥</span>
+                <span style={{fontSize:"0.6rem",fontWeight:700,letterSpacing:"0.2em",opacity:0.7}}>إطلاق جديد — أرض ديزني</span>
+              </div>
+              <h2 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1.7rem",fontWeight:300,lineHeight:1.1}}>
+                أرض ديزني<br/>
+                <span style={{fontWeight:600}}>سجّل بياناتك للحجز الآن</span>
+              </h2>
+            </div>
+            {/* EOI badge */}
+            <div style={{background:DARK,padding:"12px 28px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+              <div style={{display:"flex",alignItems:"center",gap:8}}>
+                <div style={{width:8,height:8,borderRadius:"50%",background:"#4ade80",animation:"pulse 1.5s infinite"}} />
+                <span style={{fontSize:"0.7rem",fontWeight:700,color:"white",letterSpacing:"0.1em"}}>نجمع EOI حالياً</span>
+              </div>
+              <span style={{fontSize:"0.65rem",color:"rgba(255,255,255,0.4)"}}>Palm Hills Developments</span>
+            </div>
+            {/* Form */}
+            <div style={{padding:"24px 28px"}}>
+              {popupSent ? (
+                <div style={{textAlign:"center",padding:"2rem 0"}}>
+                  <div style={{fontSize:"2.5rem",marginBottom:"12px"}}>✅</div>
+                  <p style={{fontWeight:700,fontSize:"1.1rem",color:DARK}}>تم التسجيل!</p>
+                  <p style={{fontSize:"0.8rem",color:MID,marginTop:6}}>سيتواصل معك فريقنا قريباً</p>
+                  <button onClick={()=>setShowPopup(false)} style={{marginTop:16,padding:"10px 28px",background:RED,color:"white",border:"none",fontWeight:700,cursor:"pointer",fontFamily:"Cairo,sans-serif"}}>
+                    إغلاق
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={submitPopup}>
+                  <style>{`.popup-inp::placeholder{color:${MID}}.popup-inp:focus{border-bottom-color:${RED}!important}`}</style>
+                  <p style={{fontSize:"0.78rem",color:MID,marginBottom:16,lineHeight:1.7}}>
+                    سجّل اهتمامك الآن وكن من أوائل المحجوزين في أرض ديزني على الساحل الشمالي.
+                  </p>
+                  <input className="popup-inp" placeholder="الاسم الكريم *" value={popupForm.name}
+                    onChange={e=>setPopupForm({...popupForm,name:e.target.value})} required
+                    style={{width:"100%",background:"transparent",border:"none",borderBottom:`1px solid ${BORDER}`,padding:"12px 0",fontSize:"0.85rem",color:DARK,outline:"none",marginBottom:"10px",display:"block",fontFamily:"Almarai,sans-serif"}} />
+                  <input className="popup-inp" type="tel" placeholder="رقم الهاتف *" value={popupForm.phone}
+                    onChange={e=>setPopupForm({...popupForm,phone:e.target.value})} required dir="ltr"
+                    style={{width:"100%",background:"transparent",border:"none",borderBottom:`1px solid ${BORDER}`,padding:"12px 0",fontSize:"0.85rem",color:DARK,outline:"none",marginBottom:"20px",display:"block",fontFamily:"Almarai,sans-serif"}} />
+                  <button type="submit" disabled={popupLoading}
+                    style={{width:"100%",padding:"14px",background:RED,color:"white",border:"none",fontWeight:700,fontSize:"0.82rem",letterSpacing:"0.08em",cursor:"pointer",fontFamily:"Almarai,sans-serif",opacity:popupLoading?0.7:1}}>
+                    {popupLoading ? "..." : "🔥 سجّل اهتمامك الآن"}
+                  </button>
+                  <a href={`${WA}?text=${encodeURIComponent("مرحباً، أنا مهتم بالحجز في أرض ديزني من Palm Hills — الساحل الشمالي")}`}
+                    target="_blank" rel="noopener noreferrer"
+                    style={{display:"block",marginTop:8,padding:"12px",background:"#25D366",color:"white",fontWeight:700,fontSize:"0.75rem",textAlign:"center",textDecoration:"none"}}>
+                    💬 تواصل واتساب مباشرة
+                  </a>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* FLOAT BUTTONS */}
       <div style={{position:"fixed",bottom:80,left:24,zIndex:50,display:"flex",flexDirection:"column",gap:10}}>
