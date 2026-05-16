@@ -209,15 +209,17 @@ export default function Home() {
           .ph-nav-logo-text{font-size:0.85rem!important}
 
           /* HERO */
-          .ph-hero-grid{display:flex!important;flex-direction:column!important;padding:100px 20px 40px!important;gap:24px!important}
-          .ph-hero-text h1{font-size:2.5rem!important}
-          .ph-hero-text p{font-size:0.85rem!important}
-          .ph-hero-badge{font-size:0.68rem!important;padding:5px 12px!important}
-          .ph-hero-pills{gap:8px!important}
+          .ph-hero-section{min-height:auto!important}
+          .ph-hero-grid{display:flex!important;flex-direction:column!important;padding:80px 20px 32px!important;gap:20px!important}
+          .ph-hero-text h1{font-size:2.4rem!important}
+          .ph-hero-text p{font-size:0.85rem!important;margin-bottom:20px!important}
+          .ph-hero-badge{font-size:0.68rem!important;padding:5px 12px!important;margin-bottom:12px!important}
+          .ph-hero-pills{gap:6px!important;margin-bottom:24px!important}
           .ph-hero-pills button{font-size:0.7rem!important;padding:6px 14px!important}
-          .ph-hero-stats{flex-wrap:wrap!important;gap:16px!important}
+          .ph-hero-stats{flex-wrap:wrap!important;gap:16px!important;padding-top:16px!important}
           .ph-hero-stats>div{padding-left:0!important;margin-left:0!important;border-left:none!important}
-          .ph-hero-form{padding:24px 20px!important}
+          .ph-hero-dev-label{display:none!important}
+          .ph-hero-form{display:none!important}
 
           /* PROJECTS OVERVIEW */
           .ph-projects-grid{grid-template-columns:1fr!important}
@@ -260,7 +262,7 @@ export default function Home() {
       `}</style>
 
       {/* ── HERO ── */}
-      <section style={{position:"relative",minHeight:"100vh",display:"flex",flexDirection:"column"}}>
+      <section className="ph-hero-section" style={{position:"relative",minHeight:"100vh",display:"flex",flexDirection:"column"}}>
         {/* BG slideshow */}
         {mounted && HERO_IMGS.map((img,i)=>(
           <div key={i} style={{position:"absolute",inset:0,transition:"opacity 1s ease",opacity:i===heroIdx?1:0,overflow:"hidden"}}>
@@ -315,7 +317,7 @@ export default function Home() {
           padding:"120px 48px 80px",
         }}>
           <div className="slide-up ph-hero-text">
-            <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:20,flexDirection:"row-reverse",justifyContent:"flex-end"}}>
+            <div className="ph-hero-dev-label" style={{display:"flex",alignItems:"center",gap:12,marginBottom:20,flexDirection:"row-reverse",justifyContent:"flex-end"}}>
               <div style={{width:28,height:1,background:GOLD}} />
               <span style={{fontSize:"0.6rem",fontWeight:600,letterSpacing:"0.25em",color:GOLD}}>PALM HILLS DEVELOPMENTS • </span>
             </div>
@@ -386,7 +388,7 @@ export default function Home() {
             </h2>
             <p style={{fontSize:"0.75rem",color:MID,marginBottom:24,lineHeight:1.7}}>سيتواصل معك فريقنا خلال 24 ساعة</p>
             <LeadForm subject="Lead — Palm Hills (Hero)" />
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginTop:12}}>
+            <div className="ph-hero-form-btns" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginTop:12}}>
               <a href={`${WA}?text=${encodeURIComponent("مرحباً، أنا مهتم بمشاريع Palm Hills الساحلية")}`}
                 target="_blank" rel="noopener noreferrer"
                 style={{padding:"11px",background:"#25D366",color:"white",fontWeight:700,fontSize:"0.72rem",textAlign:"center",textDecoration:"none"}}>
