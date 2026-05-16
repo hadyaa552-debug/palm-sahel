@@ -27,7 +27,7 @@ const PROJECTS = [
     payment: "قريباً",
     desc: "أول مشروع Palm Hills المرتبط بعالم ديزني في مصر — إطلاق قريباً على الساحل الشمالي. سجّل اهتمامك الآن وكن من أوائل المحجوزين.",
     features: ["موقع استراتيجي على الساحل الشمالي","أول مشروع من نوعه في مصر","فرصة استثمارية استثنائية","تصميم عالمي المستوى"],
-    img: "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=1200&q=80",
+    img: "https://prod-images.nawy.com/processed/inventory/compounds/43/gallery/Hacienda%20Bay%204.jpg",
     coming: true,
   },
   {
@@ -48,7 +48,7 @@ const PROJECTS = [
       {type:"توين هاوس",price:"من ٣٧,٣٢٦,٧١٥ ج"},
       {type:"فيلا",price:"من ٤٠,٣٩٧,٩٦٥ ج"},
     ],
-    img: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&q=80",
+    img: "https://prod-images.nawy.com/processed/inventory/compounds/43/gallery/Screenshot%202024-08-12%20at%201.53.06%E2%80%AFAM.png",
   },
   {
     id: "waters",
@@ -68,15 +68,15 @@ const PROJECTS = [
       {type:"شاليه ٣ غرف",price:"من ١٤,٠٠٠,٠٠٠ ج"},
       {type:"فيلا",price:"تواصل للسعر"},
     ],
-    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80",
+    img: "https://prod-images.nawy.com/processed/inventory/compounds/1261/gallery/Hacienda%20Waters%201.jpg",
   },
 ]
 
 // Images from Palm Hills website
 const HERO_IMGS = [
-  "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1600&q=80",
-  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80",
-  "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=1600&q=80",
+  "https://prod-images.nawy.com/processed/inventory/compounds/43/gallery/Screenshot%202024-08-12%20at%201.53.06%E2%80%AFAM.png",
+  "https://prod-images.nawy.com/processed/inventory/compounds/1261/gallery/Hacienda%20Waters%201.jpg",
+  "https://prod-images.nawy.com/processed/inventory/compounds/43/gallery/Hacienda%20Bay%204.jpg",
 ]
 
 /* ── Lead Form ── */
@@ -112,7 +112,7 @@ function LeadForm({ subject, dark=false }: { subject:string; dark?:boolean }) {
     width:"100%",background:"transparent",border:"none",
     borderBottom:`1px solid ${bc}`,padding:"13px 0",
     fontSize:"0.85rem",color:tc,outline:"none",
-    fontFamily:"Cairo,sans-serif",display:"block",marginBottom:"10px",
+    fontFamily:"'Almarai',system-ui,-apple-system,sans-serif",display:"block",marginBottom:"10px",
   }
 
   return (
@@ -132,7 +132,7 @@ function LeadForm({ subject, dark=false }: { subject:string; dark?:boolean }) {
       <button type="submit" disabled={loading}
         style={{width:"100%",padding:"14px",background:dark?GOLD:DARK,color:"white",border:"none",
           fontWeight:700,fontSize:"0.82rem",letterSpacing:"0.08em",cursor:"pointer",
-          fontFamily:"Cairo,sans-serif",opacity:loading?0.7:1,transition:"opacity .2s"}}>
+          fontFamily:"'Almarai',system-ui,-apple-system,sans-serif",opacity:loading?0.7:1,transition:"opacity .2s"}}>
         {loading?"...":"اطلب معلومات الآن"}
       </button>
     </form>
@@ -159,10 +159,10 @@ export default function Home() {
   return (
     <div dir="rtl" style={{direction:"rtl"}}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap');
-        *{box-sizing:border-box;margin:0;padding:0;font-family:'Cairo',sans-serif}
+        @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap');
+        *{box-sizing:border-box;margin:0;padding:0;font-family:'Almarai',system-ui,-apple-system,sans-serif}
         html{scroll-behavior:smooth}
-        body{background:${CREAM};color:${DARK};direction:rtl}
+        body{background:${CREAM};color:${DARK};direction:rtl;font-size:16px;font-weight:400}
         .hov-red:hover{color:${RED}!important;transition:color .2s}
         .hov-scale:hover img{transform:scale(1.05);transition:transform .7s}
         .card-hover:hover{background:${WARM}!important;transition:background .3s}
@@ -213,7 +213,7 @@ export default function Home() {
             ))}
             <a href={`tel:${PHONE}`} style={{fontSize:"0.82rem",fontWeight:700,color:scrolled?DARK:"white",textDecoration:"none"}} dir="ltr">01119770408</a>
             <button onClick={()=>scroll("contact")}
-              style={{background:RED,color:"white",border:"none",padding:"10px 22px",fontWeight:700,fontSize:"0.72rem",letterSpacing:"0.08em",cursor:"pointer",fontFamily:"Cairo,sans-serif",transition:"opacity .2s"}}
+              style={{background:RED,color:"white",border:"none",padding:"10px 22px",fontWeight:700,fontSize:"0.72rem",letterSpacing:"0.08em",cursor:"pointer",fontFamily:"'Almarai',system-ui,-apple-system,sans-serif",transition:"opacity .2s"}}
               onMouseEnter={e=>((e.target as HTMLElement).style.opacity="0.85")}
               onMouseLeave={e=>((e.target as HTMLElement).style.opacity="1")}>
               تواصل الآن
@@ -269,7 +269,7 @@ export default function Home() {
                     color:"rgba(255,255,255,0.7)",
                     background:"transparent",padding:"8px 18px",
                     fontSize:"0.75rem",fontWeight:600,cursor:"pointer",
-                    fontFamily:"Cairo,sans-serif",
+                    fontFamily:"'Almarai',system-ui,-apple-system,sans-serif",
                     transition:"all .2s",
                   }}
                   onMouseEnter={e=>{ const el=e.currentTarget; el.style.borderColor=RED; el.style.color="white"; el.style.background=RED }}
@@ -462,7 +462,7 @@ export default function Home() {
       {/* ── ABOUT PALM HILLS ── */}
       <section style={{display:"grid",gridTemplateColumns:"1fr 1fr",background:DARK}}>
         <div style={{
-          background:`url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80') center/cover`,
+          background:`url('https://prod-images.nawy.com/processed/inventory/compounds/43/gallery/Hacienda%20Bay%204.jpg') center/cover`,
           minHeight:480,position:"relative",
         }}>
           <div style={{position:"absolute",inset:0,background:"rgba(28,25,23,0.3)"}} />
