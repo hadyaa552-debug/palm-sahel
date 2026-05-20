@@ -30,7 +30,7 @@ export async function POST(req: Request) {
       </div>
     `
 
-    const res = await fetch("https://api.resend.com/emails", {
+    const resendPromise = fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,18 +43,34 @@ export async function POST(req: Request) {
         subject: subject || "ليد جديد — Palm Hills",
         html: htmlContent,
       }),
-    })
+    });
 
-    const data = await res.json()
+    const n8nWebhookUrl = "https://n8n.nurlinebrokerage.com/webhook/get-wp-palmhills"; 
+    
+    const n8nPromise = fetch(n8nWebhookUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        body: {
+            name: name,
+            mobile: phone,
+            project: project || "Palm Hills"
+        }
+      }),
+    });
 
-    if (!res.ok) {
-      console.error("Resend error:", data)
-      return NextResponse.json({ success: false, error: data }, { status: 500 })
+    const [resendRes] = await Promise.all([resendPromise, n8nPromise]);
+
+    const data = await resendRes.json();
+
+    if (!resendRes.ok) {
+      return NextResponse.json({ success: false, error: data }, { status: 500 });
     }
 
-    return NextResponse.json({ success: true, id: data.id })
+    return NextResponse.json({ success: true, id: data.id });
   } catch (error) {
-    console.error("API error:", error)
-    return NextResponse.json({ success: false, error: "Internal server error" }, { status: 500 })
+    return NextResponse.json({ success: false, error: "Internal server error" }, { status: 500 });
   }
 }
