@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react"
 
 const PHONE = "+201117322733"
 const WA = "https://wa.me/201117322733"
-const EMAIL = "apkzoz85@gmail.com"
 
 // Palm Hills brand colors — cream + dark charcoal + red accent
 const DARK = "#1C1917"
@@ -88,11 +87,11 @@ function LeadForm({ subject, dark=false }: { subject:string; dark?:boolean }) {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault(); setLoading(true)
     try {
-      await fetch(`https://formsubmit.co/ajax/${EMAIL}`, {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method:"POST", headers:{"Content-Type":"application/json",Accept:"application/json"},
-        body: JSON.stringify({...form, _subject: subject, _captcha:"false", _template:"table", _cc:"Info@nurlinebrokerage.com"}),
+        body: JSON.stringify({access_key:"ab215000-8677-4e65-b340-524decf6641f", name:form.name, phone:form.phone, project:form.project, subject, cc:"Info@nurlinebrokerage.com"}),
       })
-      setSent(true)
+      if (res.ok) setSent(true); else setLoading(false)
     } catch { setLoading(false) }
   }
 
@@ -173,11 +172,11 @@ export default function Home() {
   const submitPopup = async (e: React.FormEvent) => {
     e.preventDefault(); setPopupLoading(true)
     try {
-      await fetch(`https://formsubmit.co/ajax/${EMAIL}`, {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method:"POST", headers:{"Content-Type":"application/json",Accept:"application/json"},
-        body: JSON.stringify({...popupForm, _subject:"EOI — أرض ديزني Palm Hills", _captcha:"false", _template:"table", _cc:"Info@nurlinebrokerage.com"}),
+        body: JSON.stringify({access_key:"ab215000-8677-4e65-b340-524decf6641f", name:popupForm.name, phone:popupForm.phone, subject:"EOI — أرض ديزني Palm Hills", cc:"Info@nurlinebrokerage.com"}),
       })
-      setPopupSent(true)
+      if (res.ok) setPopupSent(true); else setPopupLoading(false)
     } catch { setPopupLoading(false) }
   }
 
