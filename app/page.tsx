@@ -1,9 +1,9 @@
 "use client"
 import React, { useState, useEffect } from "react"
 
-const PHONE = "+201119770408"
-const WA = "https://wa.me/201119770408"
-const EMAIL = "Info@brokerage.com"
+const PHONE = "+201117322733"
+const WA = "https://wa.me/201117322733"
+const EMAIL = "apkzoz85@gmail.com"
 
 // Palm Hills brand colors — cream + dark charcoal + red accent
 const DARK = "#1C1917"
@@ -90,7 +90,7 @@ function LeadForm({ subject, dark=false }: { subject:string; dark?:boolean }) {
     try {
       await fetch(`https://formsubmit.co/ajax/${EMAIL}`, {
         method:"POST", headers:{"Content-Type":"application/json",Accept:"application/json"},
-        body: JSON.stringify({...form, _subject: subject, _captcha:"false", _template:"table"}),
+        body: JSON.stringify({...form, _subject: subject, _captcha:"false", _template:"table", _cc:"Info@nurlinebrokerage.com"}),
       })
       setSent(true)
     } catch { setLoading(false) }
@@ -175,7 +175,7 @@ export default function Home() {
     try {
       await fetch(`https://formsubmit.co/ajax/${EMAIL}`, {
         method:"POST", headers:{"Content-Type":"application/json",Accept:"application/json"},
-        body: JSON.stringify({...popupForm, _subject:"EOI — أرض ديزني Palm Hills", _captcha:"false", _template:"table"}),
+        body: JSON.stringify({...popupForm, _subject:"EOI — أرض ديزني Palm Hills", _captcha:"false", _template:"table", _cc:"Info@nurlinebrokerage.com"}),
       })
       setPopupSent(true)
     } catch { setPopupLoading(false) }
@@ -298,7 +298,7 @@ export default function Home() {
                 {l}
               </button>
             ))}
-            <a href={`tel:${PHONE}`} style={{fontSize:"0.82rem",fontWeight:700,color:scrolled?DARK:"white",textDecoration:"none"}} dir="ltr">01119770408</a>
+            <a href={`tel:${PHONE}`} style={{fontSize:"0.82rem",fontWeight:700,color:scrolled?DARK:"white",textDecoration:"none"}} dir="ltr">01117322733</a>
             <button onClick={()=>scroll("contact")}
               style={{background:RED,color:"white",border:"none",padding:"10px 22px",fontWeight:700,fontSize:"0.72rem",letterSpacing:"0.08em",cursor:"pointer",fontFamily:"'Almarai',system-ui,-apple-system,sans-serif",transition:"opacity .2s"}}
               onMouseEnter={e=>((e.target as HTMLElement).style.opacity="0.85")}
@@ -585,7 +585,7 @@ export default function Home() {
           </h2>
           <a href={`tel:${PHONE}`} style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"2rem",fontWeight:300,color:"white",textDecoration:"none",display:"block",marginBottom:32,transition:"opacity .2s"}}
             dir="ltr" onMouseEnter={e=>(e.currentTarget.style.opacity="0.7")} onMouseLeave={e=>(e.currentTarget.style.opacity="1")}>
-            01119770408
+            01117322733
           </a>
           <div style={{borderTop:"1px solid rgba(255,255,255,0.2)"}}>
             {[
