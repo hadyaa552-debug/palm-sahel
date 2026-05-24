@@ -23,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'AW-17979866472');
+<<<<<<< HEAD
 
           // WhatsApp conversion
           function trackWhatsapp(url) {
@@ -47,6 +48,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             });
             return false;
           }
+=======
+>>>>>>> f488225249547025f909649d2aaf796eaf18a88a
         `}</Script>
       </head>                                    {/* 👈 قفلنا head */}
       <body className={almarai.className}>{children}</body>
