@@ -6,7 +6,7 @@ export default function ThankYou() {
     // Form conversion
     if (typeof window !== "undefined" && (window as any).gtag) {
       (window as any).gtag('event', 'conversion', {
-        'send_to': 'AW-17979866472/pJDrCJn537IcEOj6u_1C'
+        'send_to': 'AW-18199061831/r7d6CK3zqrYcEMfK_uVD'
       })
     }
   }, [])
