@@ -339,7 +339,7 @@ export default function Home() {
               fontWeight:300,color:"white",
               lineHeight:0.95,marginBottom:20,letterSpacing:"-0.01em"
             }}>
-              الساحل الشمالي<br/>
+              هاسيندا راس الحكمة<br/>
               <em style={{fontStyle:"italic",color:"rgba(255,255,255,0.45)"}}>بتوقيع</em><br/>
               Palm Hills
             </h1>
