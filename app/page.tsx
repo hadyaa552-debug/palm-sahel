@@ -18,7 +18,7 @@ const PROJECTS = [
   {
     id: "disney",
     num: "01",
-    name: "أرض ديزني",
+    name: "هاسيندا راس الحكمة",
     nameEn: "Disney Land Plot",
     tag: "🔥 إطلاق قريباً",
     location: "الساحل الشمالي",
@@ -126,7 +126,7 @@ function LeadForm({ subject, dark=false }: { subject:string; dark?:boolean }) {
       <select value={form.project} onChange={e=>setForm({...form,project:e.target.value})}
         style={{...inpStyle,cursor:"pointer",color:form.project?tc:ph,marginBottom:"22px"}}>
         <option value="">اختر المشروع</option>
-        <option value="أرض ديزني" style={{color:DARK}}>🔥 أرض ديزني — إطلاق قريباً</option>
+        <option value="هاسيندا راس الحكمة" style={{color:DARK}}>🔥 أرض ديزني — إطلاق قريباً</option>
         <option value="Hacienda Bay" style={{color:DARK}}>Hacienda Bay — كيلو 124</option>
         <option value="Hacienda Waters" style={{color:DARK}}>Hacienda Waters — رأس الحكمة</option>
       </select>
@@ -330,7 +330,7 @@ export default function Home() {
               background:"rgba(139,26,26,0.9)",
               color:"white",fontSize:"0.72rem",fontWeight:700,
             }}>
-              🔥 أرض ديزني — إطلاق قريباً على الساحل الشمالي
+              🔥 هاسيندا راس الحكمة — إطلاق قريباً على الساحل الشمالي
             </div>
 
             <h1 style={{
